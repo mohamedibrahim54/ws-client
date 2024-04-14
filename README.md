@@ -1,1 +1,1 @@
-# Simple Web Service Client
+# Simple Web Services Client
