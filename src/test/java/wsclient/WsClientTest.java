@@ -89,4 +89,28 @@ class WsClientTest {
         assertNotNull(retrieved);
     }
 
+    @Test
+    void retrieveWithRequestHeaders() throws SOAPException, IOException {
+        JdkHttpClientSender jdkHttpClientSender = new JdkHttpClientSender();
+
+        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+        marshaller.setContextPath("wsclient.types");
+
+        ObjectFactory factory = new ObjectFactory();
+        QueryRequest queryRequest = factory.createQueryRequest();
+        queryRequest.setId("05041995");
+
+        WsClient wsClient = WsClient.builder()
+                .baseUrl("http://localhost:9095/mock/ws")
+                .sender(jdkHttpClientSender)
+                .marshaller(marshaller)
+                .defaultHeaders(map -> map.put("Accept", List.of("application/xml")))
+                .build();
+
+        Object retrieved = wsClient.request(queryRequest).header("Accept", "text/xml").send().retrieve();
+        System.out.println(retrieved);
+
+        assertNotNull(retrieved);
+    }
+
 }

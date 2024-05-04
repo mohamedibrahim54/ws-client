@@ -10,6 +10,8 @@ import java.net.URI;
 import java.util.List;
 import java.util.Map;
 
+import static java.util.Objects.requireNonNull;
+
 public class WsClient {
 
     private final String baseUrl;
@@ -36,19 +38,22 @@ public class WsClient {
     }
 
     public RequestSpec request(Object payload) {
-        return new RequestSpec(payload);
+        return new RequestSpec(defaultHeaders, payload);
     }
 
     public class RequestSpec {
 
+        private final Map<String, List<String>> headers;
         private final Object payload;
         private URI uri;
 
-        public RequestSpec(Object payload) {
+        public RequestSpec(Map<String, List<String>> headers, Object payload) {
+            this.headers = headers;
             this.payload = payload;
         }
 
         public RequestSpec uri(String uri) {
+            requireNonNull(uri, "uri");
             if (baseUrl != null) {
                 this.uri = URI.create(baseUrl + uri);
             } else {
@@ -56,10 +61,22 @@ public class WsClient {
             }
             return this;
         }
+        
+        public RequestSpec header(String name, String value){
+            requireNonNull(value, "value");
+            return header(name, List.of(value));
+        }
+
+        public RequestSpec header(String name, List<String> valueList){
+            requireNonNull(name, "name");
+            requireNonNull(valueList, "valueList");
+            headers.put(name, valueList);
+            return this;
+        }
 
         public ResponseSpec send() throws SOAPException, IOException {
             URI requestUri = uri == null ? URI.create(baseUrl) : uri;
-            ClientRequest clientRequest = buildRequest(requestUri, WsClient.this.sender, WsClient.this.defaultHeaders, payload, WsClient.this.interceptors);
+            ClientRequest clientRequest = buildRequest(requestUri, WsClient.this.sender, headers, payload, WsClient.this.interceptors);
             return new ResponseSpec(clientRequest.execute());
         }
 
