@@ -4,7 +4,7 @@
 
     <groupId>com.github.mohamedibrahim54</groupId>
     <artifactId>ws-client</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
 
     <description>Simple Web Services Client</description>
     <url>https://github.com/mohamedibrahim54/ws-client</url>
@@ -20,7 +20,7 @@
         <connection>scm:git:git@github.com:mohamedibrahim54/ws-client.git</connection>
         <developerConnection>scm:git:git@github.com:mohamedibrahim54/ws-client.git</developerConnection>
         <url>https://github.com/mohamedibrahim54/ws-client</url>
-      <tag>ws-client-1.0</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <properties>
