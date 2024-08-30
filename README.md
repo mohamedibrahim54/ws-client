@@ -15,11 +15,13 @@
           <url>https://maven.pkg.github.com/mohamedibrahim54/ws-client</url>
       </repository>
   </repositories>
-  <dependency>
-      <groupId>com.github.mohamedibrahim54</groupId>
-      <artifactId>ws-client</artifactId>
-      <version>1.0</version>
-  </dependency>
+  <dependencies>
+    <dependency>
+        <groupId>com.github.mohamedibrahim54</groupId>
+        <artifactId>ws-client</artifactId>
+        <version>1.0</version>
+    </dependency>
+  </dependencies>
 ```
 
 ## Examples
