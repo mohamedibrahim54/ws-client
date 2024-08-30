@@ -4,9 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>com.github.mohamedibrahim54</groupId>
     <artifactId>ws-client</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <description>Simple Web Services Client</description>
+    <url>https://github.com/mohamedibrahim54/ws-client</url>
+
+    <developers>
+        <developer>
+            <name>Mohamed Ibrahim Elsawy</name>
+            <email>mohamed.ibrahim.elsawy@outlook.com</email>
+        </developer>
+    </developers>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>

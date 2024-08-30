@@ -31,7 +31,12 @@ class WsClientTest {
         QueryRequest queryRequest = factory.createQueryRequest();
         queryRequest.setId("05041995");
 
-        WsClient wsClient = WsClient.builder().baseUrl("http://localhost:9095/mock/ws").sender(jdkHttpClientSender).marshaller(marshaller).build();
+        WsClient wsClient = WsClient.builder()
+                .baseUrl("http://localhost:9095/mock/ws")
+                .sender(jdkHttpClientSender)
+                .marshaller(marshaller)
+                .build();
+
         String retrieved = wsClient.request(queryRequest).send().retrieveAsString();
         System.out.println(retrieved);
 
