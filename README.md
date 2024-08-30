@@ -5,7 +5,7 @@
   - Provide Request Interceptors via chain of responsibility pattern to intercept HTTP request including web service message and HTTP response 
   - Fluent API makes the code more readable and expressive by sequentially calling methods
   - Small jar dependency
-## Add Depdency
+## Add Dependency
 ### Maven
 
 ```xml
