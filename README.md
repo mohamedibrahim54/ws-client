@@ -5,6 +5,23 @@
   - Provide Request Interceptors via chain of responsibility pattern to intercept HTTP request including web service message and HTTP response 
   - Fluent API makes the code more readable and expressive by sequentially calling methods
   - Small jar dependency
+## Add Depdency
+### Maven
+
+```xml
+  <repositories>
+      <repository>
+          <id>github</id>
+          <url>https://maven.pkg.github.com/mohamedibrahim54/ws-client</url>
+      </repository>
+  </repositories>
+  <dependency>
+      <groupId>com.github.mohamedibrahim54</groupId>
+      <artifactId>ws-client</artifactId>
+      <version>1.0</version>
+  </dependency>
+```
+
 ## Examples
 ### Basic
 ```java
